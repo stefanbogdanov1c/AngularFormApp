@@ -1,1 +1,262 @@
-<p>neki tekst</p>
+<form [formGroup]="createForm">
+<section class="gradient-custom">
+    <div class="container py-2" *ngIf="email!==null; else notAuthorized">
+        <div class="row d-flex justify-content-around align-items-center h-100">
+
+
+            <div class="col-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="card bg-dark text-white mb-2" style="border-radius: 1rem; height:620px">
+                <div class="card-body p-5 text-center">
+                <div class="mb-md-2 mt-md-4 pb-2">
+                    <h2 class="fw-bold mb-2 text-uppercase">Personal data</h2>
+    
+                    
+                    <div class="form-outline form-white mb-2">
+                        <label for="text" class="form-label">First name </label>
+                        <input
+                        type="text"
+                        formControlName="firstName"
+                        class="form-control form-control-lg"
+                        placeholder="Pera"
+                        />
+                        <div
+                        *ngIf="
+                            createForm.controls['firstName'].invalid &&
+                            createForm.controls['firstName'].touched">
+                        <p>Please fill out this field</p>
+                        </div>
+                    </div>
+                    <div class="form-outline form-white mb-2">
+                        <label for="lastName" class="form-label">Last name </label>
+                        <input
+                        type="text"
+                        formControlName="lastName"
+                        class="form-control form-control-lg"
+                        placeholder="Peric"
+                        />
+                        <div
+                        *ngIf="
+                            createForm.controls['lastName'].invalid &&
+                            createForm.controls['lastName'].touched">
+                        <p>Please fill out this field</p>
+                        </div>
+                    </div>
+                    <div class="form-outline form-white mb-2">
+                        <label for="lastName" class="form-label">Passport Number </label>
+                        <input
+                        type="number"
+                        formControlName="passportNumber"
+                        class="form-control form-control-lg"
+                        placeholder="123456789"
+                        />
+                        <div
+                        *ngIf="
+                            createForm.controls['passportNumber'].invalid &&
+                            createForm.controls['passportNumber'].touched">
+                        <p>Please fill out this field</p>
+                        </div>
+                    </div>
+                    <div class="form-outline form-white mb-2">
+                        <label for="lastName" class="form-label">Passport ID </label>
+                        <input
+                        type="number"
+                        formControlName="passportID"
+                        class="form-control form-control-lg"
+                        placeholder="123456"
+                        />
+                        <div
+                        *ngIf="
+                            createForm.controls['passportID'].invalid &&
+                            createForm.controls['passportID'].touched">
+                        <p>Please fill out this field</p>
+                        </div>
+                    </div>
+    
+
+                    
+    
+                </div>
+                </div>
+                
+            </div>
+            </div>
+
+            <div class="col-12 col-md-12 col-lg-4 col-xl-4">
+
+            <div class="card bg-dark text-white mb-2" style="border-radius: 1rem;height:620px">
+                <div class="card-body p-5 text-center">
+                <div class="mb-md-2 mt-md-4 pb-2">
+                    <h2 class="fw-bold mb-2 text-uppercase">Travel info</h2>
+    
+                    
+                    <div class="form-outline form-white mb-2">
+                        <label for="text" class="form-label">Accomodation </label>
+                        <select formControlName="accomodation" class="form-select form-control-lg" >
+                            <option selected disabled>
+                                Choose your accomodation
+                            </option>
+                            <option *ngFor="let acc of accomodationArray" [ngValue]="acc">
+                                {{ acc }}
+                            </option>
+                        </select> 
+                        
+                          
+                        
+                    </div>
+                    <div class="form-outline form-white mb-2">
+                        <label for="accomodationName" class="form-label">Accomodation name </label>
+                        <input
+                        type="text"
+                        formControlName="accomodationName"
+                        class="form-control form-control-lg"
+                        placeholder="Hotel Srbija"
+                        />
+                        <div
+                        *ngIf="
+                            createForm.controls['accomodationName'].invalid &&
+                            createForm.controls['accomodationName'].touched">
+                        <p>Please fill out this field</p>
+                        </div>
+                    </div>
+                    <div class="form-outline form-white mb-2">
+                        <label for="transport" class="form-label">Type of transport </label>
+                        <select formControlName="transport" class="form-select form-select-lg" aria-placeholder="Choose your accomodation">
+                            <option selected disabled>
+                                Choose your transport
+                            </option>
+                            <option *ngFor="let tran of transportArray" [ngValue]="tran">
+                                {{ tran }}
+                            </option>
+                        </select> 
+                    </div>
+                    <div class="form-outline form-white mb-2">
+                        <label for="locationName" class="form-label">Location name </label>
+                        <input
+                        type="text"
+                        formControlName="locationName"
+                        class="form-control form-control-lg"
+                        placeholder="Belgrade"
+                        />
+                        <div
+                        *ngIf="
+                            createForm.controls['locationName'].invalid &&
+                            createForm.controls['locationName'].touched">
+                        <p>Please fill out this field</p>
+                        </div>
+                    </div>
+    
+
+                    
+    
+                </div>
+                </div>
+                
+            </div>
+
+            </div>
+
+            <div class="col-12 col-md-12 col-lg-4 col-xl-4">
+
+                <div class="card bg-dark text-white" style="border-radius: 1rem;height:620px">
+                    <div class="card-body p-5 text-center">
+                    <div class="mb-md-2 mt-md-4 pb-2">
+                        <h2 class="fw-bold mb-2 text-uppercase">Date and time</h2>
+        
+                        
+                        <div class="form-outline form-white mb-2">
+                            <label for="text" class="form-label">Arrival Date </label>
+                            <input
+                            type="date"
+                            formControlName="arrivalDate"
+                            class="form-control form-control-lg"
+                            placeholder="dd-mm-yy"
+                            />
+                            <div
+                            *ngIf="
+                                createForm.controls['arrivalDate'].invalid &&
+                                createForm.controls['arrivalDate'].touched">
+                            <p>Please fill out this field</p>
+                            </div>
+                        </div>
+                        <div class="form-outline form-white mb-2">
+                            <label for="arrivalTime" class="form-label">Arrival Time </label>
+                            <input
+                            type="time"
+                            formControlName="arrivalTime"
+                            class="form-control form-control-lg"
+                            />
+                            <div
+                            *ngIf="
+                                createForm.controls['arrivalTime'].invalid &&
+                                createForm.controls['arrivalTime'].touched">
+                            <p>Please fill out this field</p>
+                            </div>
+                        </div>
+                        <div class="form-outline form-white mb-2">
+                            <label for="departureDate" class="form-label">Departure Date </label>
+                            <input
+                            type="date"
+                            formControlName="departureDate"
+                            class="form-control form-control-lg"
+                            />
+                            <div
+                            *ngIf="
+                                createForm.controls['departureDate'].value>createForm.controls['arrivalDate'].value &&
+                                createForm.controls['departureDate'].invalid &&
+                                createForm.controls['departureDate'].touched">
+                            <p>Please fill out this field</p>
+                            </div>
+                        </div>
+                        <div class="form-outline form-white mb-2">
+                            <label for="departureTime" class="form-label">Departure Time </label>
+                            <input
+                            type="time"
+                            formControlName="departureTime"
+                            class="form-control form-control-lg"
+                            />
+                            <div
+                            *ngIf="
+                                createForm.controls['departureTime'].invalid &&
+                                createForm.controls['departureTime'].touched">
+                            <p>Please fill out this field</p>
+                            </div>
+                        </div>
+        
+    
+                        
+                    
+        
+                    </div>
+                    </div>
+                    
+                </div>
+    
+            </div>
+
+            <button  (click)="onCreate()" [disabled]="createForm.invalid" class=" col-3 d-flex justify-content-center btn btn-outline-light btn-lg px-5 mt-5">Submit</button>
+        </div>
+
+    </div>
+
+    <ng-template #notAuthorized>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-dark text-white" style="border-radius: 1rem">
+                <div class="card bg-dark text-white" style="border-radius: 1rem">
+                  <div class="card-body p-5 text-center">
+                    <div class="mb-md-5 mt-md-4 pb-5">
+                      <p>Not Authorized!</p>
+                      <a
+                        routerLink="/home"
+                        class="btn btn-outline-light btn-lg px-5">
+                        Return Home!</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </ng-template>
+  </section>
+</form>
+  
