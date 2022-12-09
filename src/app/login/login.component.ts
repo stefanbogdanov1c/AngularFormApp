@@ -23,7 +23,7 @@ export class LoginComponent {
     }),
     password: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.maxLength(6)],
+      validators: [Validators.required, Validators.minLength(6)],
     }),
   });
 
