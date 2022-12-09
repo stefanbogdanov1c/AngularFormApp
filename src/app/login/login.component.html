@@ -46,13 +46,11 @@
                   </div>
                 </div>
 
-                <button [disabled]="loginForm.invalid" class="btn btn-outline-light btn-lg px-5 mt-5">
-                  <a 
-                  type="submit"
-                  (click)="onLogin()"
-                  
-                  href="/home"> Login</a>
-                </button>
+                <!-- added a form so the button would act like <a href="home">, so the header would update and display the logout button -->
+              <form>
+                <button formaction="/home" (click)="onLogin()" [disabled]="loginForm.invalid" class="btn btn-outline-light btn-lg px-5 mt-5">Log in</button>
+              </form>
+
               </form>
             </div>
 

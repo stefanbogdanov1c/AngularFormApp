@@ -8,19 +8,20 @@
     <ul class="nav navbar-nav">
       <li>
         <a
-          *ngIf="email === null; else logOut"
-          href="/register"
-          srouterLinkActive="active-link"
-          class="item"
-      >Register</a>
+        *ngIf="email === null; else logOut"
+        href="/register"
+        routerLinkActive="active-link"
+        class="item">
+          Register
+        </a>
       </li>
       <li>
         <a
-          *ngIf="email === null;"
-          href="/login"
-          class="item"
-          routerLinkActive="active-link">
-        Login
+        *ngIf="email === null;"
+        href="/login"
+        class="item"
+        routerLinkActive="active-link">
+          Login
         </a>
       </li>
       <ng-template #logOut>
@@ -29,7 +30,7 @@
         routerLinkActive="active-link" 
         class="item"
         (click)="onLogOut()">
-        Log Out
+          Log Out
         </a>
       </ng-template>
     </ul>

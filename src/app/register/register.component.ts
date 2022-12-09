@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 import { matchValidator } from './validators/password-validator';
 
 @Component({
-  selector: 'txs-register',
+  selector: 'app-register',
   standalone: true,
   imports: [RouterModule, ReactiveFormsModule, CommonModule],
   templateUrl: './register.component.html',

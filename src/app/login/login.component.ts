@@ -6,10 +6,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import {  RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'txs-login',
+  selector: 'app-login',
   standalone: true,
   imports: [RouterModule, ReactiveFormsModule, CommonModule],
   templateUrl: './login.component.html',
@@ -23,7 +23,7 @@ export class LoginComponent {
     }),
     password: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required],
+      validators: [Validators.required, Validators.maxLength(6)],
     }),
   });
 
@@ -37,8 +37,6 @@ export class LoginComponent {
       this.loginForm.value.email != undefined
     ) {
       localStorage.setItem('email', this.loginForm.value.email);
-      console.log(this.loginForm.value);
-      console.log(localStorage.getItem('email'));
     }
   }
 }
