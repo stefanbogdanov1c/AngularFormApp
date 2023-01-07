@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { first } from 'rxjs';
 import { matchValidator } from 'src/app/register/validators/password-validator';
 import { dateValidator } from './date.validator';
 
@@ -80,7 +81,30 @@ export class CreateTravelComponent implements Validators {
   }
   )
 
-  onCreate(): void {
-    console.log(this.createForm.value)
+  firstName(): any {
+    return this.createForm.get('firstName');
   }
+  lastname(): any{
+    return this.createForm.get('lastName');
+  }
+
+
+  onCreate(): void {
+   
+    
+    if (
+      (this.createForm.value.firstName != null ||
+      this.createForm.value.firstName != undefined) && 
+      (this.createForm.value.lastName != null ||
+      this.createForm.value.lastName != undefined)
+    ) {
+      localStorage.setItem('firstName', this.createForm.value.firstName);
+      console.log(localStorage.getItem('firstName'));
+      localStorage.setItem('lastName', this.createForm.value.lastName);
+      console.log(localStorage.getItem('lastName'));
+
+
+    }
+  }
+
 }
